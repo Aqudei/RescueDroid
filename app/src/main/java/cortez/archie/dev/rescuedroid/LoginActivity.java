@@ -18,6 +18,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -39,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 
     String SENT = "SMS_SENT";
     private ProgressBar progress;
+    private LinearLayout progress_container;
+    private CheckBox withInjury;
 
 
     @Override
@@ -46,7 +50,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        withInjury = (CheckBox) findViewById(R.id.checkBoxInjured);
+
         progress = (ProgressBar) findViewById(R.id.login_progress);
+        progress_container = (LinearLayout) findViewById(R.id.login_progress_container);
 
         requestSendSms();
 
@@ -122,9 +129,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void doIndividualCheckIn(View view) {
 
+        String status = withInjury.isChecked() ? "injured" : "safe";
         PendingIntent sentPI = PendingIntent.getBroadcast(this, 0,
                 new Intent(SENT), 0);
-        String outgoing = String.format("{\"Id\":%s, \"scope\":\"self\"}", user_id);
+        String outgoing = String.format("{\"Id\":%s, \"scope\":\"self\", \"status\":\"%s\"}", user_id, status);
         showProgress();
         SmsManager.getDefault().sendTextMessage(server_contact, null, outgoing, sentPI, null);
     }
@@ -139,11 +147,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showProgress() {
-        progress.setVisibility(View.VISIBLE);
+        progress_container.setVisibility(View.VISIBLE);
     }
 
     private void hideProgress() {
-        progress.setVisibility(View.GONE);
+        progress_container.setVisibility(View.GONE);
     }
 }
 
