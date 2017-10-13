@@ -47,6 +47,13 @@
         android:onClick="doIndividualCheckIn"
         android:text="Check-In (Individual)" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doIndividualCheckInHotspot"
+        android:text="Check-In (Individual) - Hotspot" />
+
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -77,5 +84,12 @@
         android:layout_height="wrap_content"
         android:onClick="doFamilyCheckIn"
         android:text="Check-In (Family)" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doFamilyCheckInHotspot"
+        android:text="Check-In (Family) - Hotspot" />
 
 </LinearLayout>

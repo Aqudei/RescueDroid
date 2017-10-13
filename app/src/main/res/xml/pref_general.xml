@@ -16,6 +16,18 @@
             android:singleLine="true"
             android:title="Server IP Address" />
         <EditTextPreference
+            android:defaultValue="192.168.43.1"
+            android:key="staff_ip_address"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Staff IP Address" />
+        <EditTextPreference
+            android:defaultValue="8001"
+            android:key="staff_port_num"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Staff Port Address" />
+        <EditTextPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:defaultValue="Default value"

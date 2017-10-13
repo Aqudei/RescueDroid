@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.system.StructPollfd;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.CheckBox;
@@ -146,12 +147,34 @@ public class LoginActivity extends AppCompatActivity {
         SmsManager.getDefault().sendTextMessage(server_contact, null, outgoing, sentPI, null);
     }
 
-    private void showProgress() {
+    public void showProgress() {
         progress_container.setVisibility(View.VISIBLE);
     }
 
-    private void hideProgress() {
+    public void hideProgress() {
         progress_container.setVisibility(View.GONE);
+    }
+
+    public void doFamilyCheckInHotspot(View view) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+        String staff_ip = sp.getString("staff_ip_address", "127.0.0.1");
+        String user_id = sp.getString("user_id", "0");
+        CheckInTask task = new CheckInTask(staff_ip);
+        String outgoing = String.format("{\"Id\":%s, \"scope\":\"family\"}", user_id);
+        task.setData(outgoing);
+        task.execute();
+    }
+
+    public void doIndividualCheckInHotspot(View view) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String status = withInjury.isChecked() ? "injured" : "safe";
+        String staff_ip = sp.getString("staff_ip_address", "127.0.0.1");
+        String user_id = sp.getString("user_id", "0");
+        CheckInTask task = new CheckInTask(staff_ip);
+        String outgoing = String.format("{\"Id\":%s, \"scope\":\"self\", \"status\":\"%s\"}", user_id, status);
+        task.setData(outgoing);
+        task.execute();
     }
 }
 

@@ -197,6 +197,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference("latitude"));
             bindPreferenceSummaryToValue(findPreference("longitude"));
             bindPreferenceSummaryToValue(findPreference("evacuation_contact"));
+            bindPreferenceSummaryToValue(findPreference("staff_ip_address"));
+            bindPreferenceSummaryToValue(findPreference("staff_port_num"));
         }
 
         @Override
