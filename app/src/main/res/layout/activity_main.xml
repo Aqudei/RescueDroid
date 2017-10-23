@@ -9,12 +9,12 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/buttonChecIn"
@@ -24,8 +24,8 @@
             android:layout_margin="8dp"
             android:drawableTop="@drawable/ic_check_circle_black_24dp"
             android:gravity="center"
-            android:text="Check In"
-            android:onClick="openCheckIns"/>
+            android:onClick="openCheckIns"
+            android:text="Check In" />
 
         <Button
             android:id="@+id/buttonFindWay"
@@ -35,8 +35,8 @@
             android:layout_margin="8dp"
             android:drawableTop="@drawable/ic_navigation_black_24dp"
             android:gravity="center"
-            android:text="Find My Way"
-            android:onClick="findMyWay"/>
+            android:onClick="findMyWay"
+            android:text="Find My Way" />
 
         <Button
             android:id="@+id/buttonHazardMaps"
@@ -58,7 +58,20 @@
             android:layout_margin="8dp"
             android:drawableTop="@drawable/ic_settings_black_24dp"
             android:gravity="center"
-            android:text="Settings"
-            android:onClick="openSettings"/>
+            android:onClick="openSettings"
+            android:text="Settings" />
     </GridLayout>
+
+    <Button
+        android:id="@+id/buttonSync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="doSync"
+        android:text="@string/sync_now_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

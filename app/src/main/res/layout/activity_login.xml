@@ -52,7 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="doIndividualCheckInHotspot"
-        android:text="Check-In (Individual) - Hotspot" />
+        android:text="Check-In (Individual) - Hotspot"
+        android:visibility="gone" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -90,6 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="doFamilyCheckInHotspot"
-        android:text="Check-In (Family) - Hotspot" />
+        android:text="Check-In (Family) - Hotspot"
+        android:visibility="gone" />
 
 </LinearLayout>

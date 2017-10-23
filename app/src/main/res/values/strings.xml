@@ -85,4 +85,5 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"The APP needs to send SMS to inform the server about your check in status."</string>
+    <string name="sync_now_text">Sync Now!</string>
 </resources>
